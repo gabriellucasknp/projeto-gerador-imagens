@@ -1,0 +1,46 @@
+/* responsivos.css */
+@media (max-width: 768px) {
+    header {
+      padding: 1rem;
+    }
+    
+    header h1 {
+      font-size: 1.5rem;
+    }
+    
+    nav ul {
+      gap: 1rem;
+    }
+    
+    .intro {
+      padding: 2rem 1rem;
+    }
+    
+    .intro h2 {
+      font-size: 1.8rem;
+    }
+    
+    .botoes {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    nav ul {
+      gap: 0.5rem;
+    }
+    
+    .intro h2 {
+      font-size: 1.5rem;
+    }
+    
+    .intro p {
+      font-size: 1rem;
+    }
+  }

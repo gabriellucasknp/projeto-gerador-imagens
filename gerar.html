@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Imagens IA | Kaiser.AI</title>
+    <link rel="stylesheet" href="./estilos/estilo.css">
+    <link rel="stylesheet" href="./estilos/responsivos.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Kaiser<span>.AI</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>            
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="generator-section">
+            <h2>Transforme sua Imaginação em Realidade</h2>
+            
+            <form action="#">
+                <div class="form-group">
+                    <label for="descricao">Descreva a imagem que deseja criar:</label>
+                    <input type="text" id="descricao" name="descricao" placeholder="Ex: um dragão vermelho voando sobre montanhas" required>
+                </div>
+                <button type="submit">Gerar Imagem</button>
+            </form>
+            
+            <div class="result-section">
+                <h3>Sua Ilustração Personalizada</h3>
+                <div class="image-container">
+                    <img src="https://picsum.photos/600/300" alt="Ilustração gerada por IA baseada na sua descrição">
+                </div>
+                <div class="actions">
+                    <button class="secondary-btn">Salvar Imagem</button>
+                    <button class="secondary-btn">Gerar Novamente</button>
+                </div>
+            </div>
+            
+            <p class="back-link"><a href="index.html">← Voltar para a Página Inicial</a></p>
+        </section>
+    </main>
+</body>
+</html>
