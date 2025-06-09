@@ -62,6 +62,7 @@ nav a {
 
 nav a:hover {
   color: var(--accent-color);
+  text-shadow: 0 0 10px var(--primary-color);
 }
 
 main {
@@ -87,7 +88,8 @@ h2 {
   color: var(--primary-color);
   text-align: center;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--secondary-color);
+  border-top: 1px solid var(--primary-color);
+  padding-top: 0.5rem;
 }
 
 form {
@@ -112,62 +114,78 @@ label {
   margin-bottom: 0.5rem;
   font-weight: bold;
   font-size: 1.1rem;
+  color: var(--accent-color);
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+textarea {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-family: "Times New Roman", Times, serif;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
   font-size: 1rem;
+  font-family: 'Eras', sans-serif;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--light-color);
 }
 
+input:focus,
+textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+  outline: none;
+}
+
+.btn,
 button {
   background-color: var(--secondary-color);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
+  color: var(--light-color);
+  padding: 0.9rem 1.8rem;
+  border-radius: 5px;
+  font-weight: bold;
   font-size: 1rem;
-  border-radius: 4px;
+  font-family: 'Eras', sans-serif;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: "Times New Roman", Times, serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   align-self: center;
 }
 
+.btn:hover,
 button:hover {
-  background-color: #c0392b;
+  background-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px var(--accent-color);
 }
 
-.result-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-h3 {
-  font-size: 1.4rem;
-  margin: 1.5rem 0;
-  color: var(--primary-color);
-  text-align: center;
-}
-
-.image-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}
-
-img {
+.image-container img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+  transition: transform 0.3s ease;
+  border: 2px solid var(--secondary-color);
+}
+
+.image-container img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px var(--accent-color);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 600;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+  text-shadow: 0 0 5px var(--accent-color);
 }
 
 .actions {
@@ -179,73 +197,133 @@ img {
 
 .secondary-btn {
   background-color: var(--accent-color);
+  color: var(--dark-color);
+  font-weight: bold;
 }
 
 .secondary-btn:hover {
-  background-color: #2980b9;
+  background-color: var(--primary-color);
+  color: var(--light-color);
 }
 
-.back-link {
-  margin-top: 2rem;
+.intro {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
   text-align: center;
+  animation: fadeInUp 1s ease;
+  color: var(--light-color);
+  border-bottom: 3px solid var(--secondary-color);
 }
 
-a {
+.intro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  animation: slideInTop 0.6s ease;
   color: var(--accent-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
+  border: 2px solid var(--accent-color);
+  background: rgba(0, 0, 0, 0.7);
 }
 
-a:hover {
-  color: #2980b9;
-  text-decoration: underline;
+.intro p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1.2s ease;
+  color: var(--light-color);
 }
 
-/* responsivos.css */
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 1.5s ease;
+}
+
+footer {
+  padding: 2rem;
+  text-align: center;
+  color: var(--light-color);
+  background-color: var(--dark-color);
+  animation: fadeIn 1.5s ease;
+  border-top: 3px solid var(--secondary-color);
+  font-family: 'Eras', sans-serif;
+}
+
+footer a {
+  color: var(--accent-color);
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideInTop {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
-
+  
   nav ul {
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  form {
-    padding: 1.5rem;
-  }
-
-  .actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .secondary-btn {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 1.5rem;
+  h1 {
+    font-size: 2rem;
+    padding: 0.8rem;
   }
 
   h2 {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
+    padding: 0.6rem;
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
-  form {
-    padding: 1rem;
+  form,
+  .formulario-contato {
+    padding: 1.5rem;
+  }
+
+  .intro {
+    padding: 2rem 1rem;
+  }
+
+  .intro h2 {
+    font-size: 2rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+  }
+
+  .actions,
+  .botoes {
+    flex-direction: column;
+    align-items: center;
   }
 }
