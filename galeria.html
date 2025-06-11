@@ -3,70 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./estilos/estilo.css" href = "./estilos/responsivos.css">
-    <title>Kaiser.Ai</title>
+    <link rel="stylesheet" href="./estilos/estilo.css">
+    <title>Kaiser.Ai - Galeria</title>
 </head>
 <body>
     <header>
-        <h1>Kaiser.Ai</h1>
-        <nav>
-            <ul>
-                <li><strong><a href="index.html">Início</a></strong></li>
-                <li><strong><a href="sobre.html">Sobre</a></strong></li>
-                <li><strong><a href="galeria.html">Galeria</a></strong></li>
-                <li><strong><a href="gerar.html">Gerador de Imagens</a></strong></li>
-                <li><strong><a href="contato.html">Contato</a></strong></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <h1>Kaiser.Ai</h1>
+            <nav>
+                <ul>
+                    <li><strong><a href="index.html">Início</a></strong></li>
+                    <li><strong><a href="sobre.html">Sobre</a></strong></li>
+                    <li><strong><a href="galeria.html">Galeria</a></strong></li>
+                    <li><strong><a href="gerar.html">Gerador de Imagens</a></strong></li>
+                    <li><strong><a href="contato.html">Contato</a></strong></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <h2>Ilustre sua Imaginação</h2>
-        
-        <img src="https://picsum.photos/id/0/600/400" alt="Escritório com laptop">
+        <section class="gallery-intro">
+            <h2>Ilustre sua Imaginação</h2>
+            <p>Explore nossa coleção de imagens geradas artificialmente</p>
+        </section>
 
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://picsum.photos/id/0/600/400" alt="Escritório com laptop">
+                <div class="image-caption">Escritório moderno</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://picsum.photos/id/1/600/400" alt="Bicicleta">
+                <div class="image-caption">Bicicleta vintage</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://picsum.photos/id/10/600/400" alt="Árvore e rio">
+                <div class="image-caption">Paisagem natural</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://picsum.photos/id/100/600/400" alt="Praia">
+                <div class="image-caption">Praia tropical</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://picsum.photos/id/1000/600/400" alt="Montanhas">
+                <div class="image-caption">Montanhas nevadas</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://picsum.photos/id/101/600/400" alt="Cidade à noite">
+                <div class="image-caption">Cidade iluminada</div>
+            </div>
+        </div>
 
-        <img src="https://picsum.photos/id/1/600/400" alt="Bicicleta">
-
-
-        <img src="https://picsum.photos/id/10/600/400" alt="Árvore e rio">
-
-
-        <img src="https://picsum.photos/id/100/600/400" alt="Praia">
-
-
-        <img src="https://picsum.photos/id/1000/600/400" alt="Montanhas">
-        
-        <h3>Funções do Site</h3>
-        <table border="1">
-            <tr>
-                <th>Funções</th>
-                <th>Descrição</th>
-            </tr>
-            <tr>
-                <td>Gerar imagens</td>
-                <td>Descreva o que você quer ilustrar e a mágica acontece</td>
-            </tr>
-            <tr>
-                <td>Galeria</td>
-                <td>Mostra Imagens Geradas</td>
-            </tr>
-            <tr>
-                <td>Contato</td>
-                <td>Fale conosco</td>
-            </tr>
-        </table>
+        <section class="functions-section">
+            <h3>Funções do Site</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Funções</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gerar imagens</td>
+                        <td>Descreva o que você quer ilustrar e a mágica acontece</td>
+                    </tr>
+                    <tr>
+                        <td>Galeria</td>
+                        <td>Mostra Imagens Geradas</td>
+                    </tr>
+                    <tr>
+                        <td>Contato</td>
+                        <td>Fale conosco</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://picsum.photos/400/200" alt="Tubarão do Bayern de Múnique"></td>
+                        <td>Tubarão Bayern de Munique</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
-</body>
-</html>
 
-        <tr>
-          <td><img src="https://picsum.photos/400/200" alt="Tubarão do Bayern de Múnique" /></td>
-          <td>Tubarão Bayern de Munique</td>
-          <td>18/04/2025</td>
-        </tr>
-      </tbody>
-    </table>
-  </main>
+    <footer>
+        <p>&copy; 2023 Kaiser.Ai - Todos os direitos reservados</p>
+    </footer>
 </body>
 </html>
