@@ -4,9 +4,297 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kaiser.Ai - Gerador</title>
-  <link rel="stylesheet" href="./estilos/estilo.css">
-  <link rel="stylesheet" href="./estilos/responsivos.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Variáveis CSS consistentes com o repositório */
+    :root {
+      --primary: #6a11cb;
+      --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      --secondary: #ff3366;
+      --secondary-hover: #ff4d7c;
+      --success: #25d366;
+      --success-hover: #20bd5d;
+      --dark: #2a2a72;
+      --light: #f8f9fa;
+      --text: #333;
+      --text-light: #fff;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      --shadow-hover: 0 5px 15px rgba(0, 0, 0, 0.3);
+      --border-radius: 15px;
+      --transition: all 0.3s ease;
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Reset e estilos base consistentes */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--primary-gradient);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header - Estilo consistente */
+    header {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+      color: var(--text-light);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    header h1 {
+      font-weight: 800;
+      font-size: 2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 span {
+      color: var(--light);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+
+    nav ul li a:hover {
+      background: var(--glass-bg);
+    }
+
+    /* Main content - Estilo de vidro consistente */
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .generator-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .generator-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Form - Estilo consistente */
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      transition: var(--transition);
+    }
+
+    input[type="text"]:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    button {
+      background: var(--secondary);
+      color: var(--text-light);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    button:hover {
+      background: var(--secondary-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Result section - Estilo consistente */
+    .result-section {
+      margin-top: 2.5rem;
+      display: none;
+    }
+
+    .result-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-light);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-container {
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+    }
+
+    .image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .secondary-btn {
+      background: var(--glass-bg);
+      color: var(--text-light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .back-link {
+      margin-top: 2rem;
+    }
+
+    .back-link a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Loading state - Estilo consistente */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--text-light);
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Responsividade consistente */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      
+      .generator-section {
+        padding: 1.5rem;
+      }
+      
+      .actions {
+        flex-direction: column;
+      }
+      
+      .image-container {
+        height: 250px;
+      }
+    }
+
+    /* Melhorias de acessibilidade */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      
+      button:hover {
+        transform: none;
+      }
+    }
+
+    /* Estilos de foco para acessibilidade */
+    button:focus-visible, 
+    input:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -14,7 +302,7 @@
     <nav>
       <ul>
         <li><a href="index.html">Início</a></li>
-        <li><a href="gerar.html">Gerar Imagem</a></li>
+        <li><a href="gerar.html" aria-current="page">Gerar Imagem</a></li>
         <li><a href="galeria.html">Galeria</a></li>
         <li><a href="sobre.html">Sobre</a></li>
         <li><a href="contato.html">Contato</a></li>
@@ -26,22 +314,22 @@
     <section class="generator-section">
       <h2>Transforme sua Imaginação em Realidade</h2>
       
-      <form action="#">
+      <form id="image-form">
         <div class="form-group">
           <label for="descricao">Descreva a imagem que deseja criar:</label>
           <input type="text" id="descricao" name="descricao" placeholder="Ex: um dragão vermelho voando sobre montanhas" required>
         </div>
-        <button type="submit">Gerar Imagem</button>
+        <button type="submit" id="generate-btn">Gerar Imagem</button>
       </form>
       
-      <div class="result-section">
+      <div class="result-section" id="result-section">
         <h3>Sua Ilustração Personalizada</h3>
         <div class="image-container">
-          <img src="https://picsum.photos/600/300" alt="Ilustração gerada por IA baseada na sua descrição">
+          <img id="generated-image" src="" alt="Ilustração gerada por IA baseada na sua descrição">
         </div>
         <div class="actions">
-          <button class="secondary-btn">Salvar Imagem</button>
-          <button class="secondary-btn">Gerar Novamente</button>
+          <button class="secondary-btn" id="save-btn">Salvar Imagem</button>
+          <button class="secondary-btn" id="regenerate-btn">Gerar Novamente</button>
         </div>
       </div>
       
@@ -49,6 +337,208 @@
     </section>
   </main>
 
-  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elementos DOM
+      const imageForm = document.getElementById('image-form');
+      const descricaoInput = document.getElementById('descricao');
+      const generateBtn = document.getElementById('generate-btn');
+      const resultSection = document.getElementById('result-section');
+      const generatedImage = document.getElementById('generated-image');
+      const saveBtn = document.getElementById('save-btn');
+      const regenerateBtn = document.getElementById('regenerate-btn');
+      
+      // Estado da aplicação
+      let currentImageUrl = '';
+      let isLoading = false;
+      
+      // Event Listeners
+      imageForm.addEventListener('submit', handleFormSubmit);
+      saveBtn.addEventListener('click', saveImage);
+      regenerateBtn.addEventListener('click', generateImage);
+      
+      // Verificar se há parâmetros na URL para preencher automaticamente
+      checkUrlParams();
+      
+      // Função para lidar com o envio do formulário
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        generateImage();
+      }
+      
+      // Função para gerar imagem
+      function generateImage() {
+        const descricao = descricaoInput.value.trim();
+        
+        if (!descricao) {
+          showNotification('Por favor, descreva a imagem que deseja criar.', 'error');
+          return;
+        }
+        
+        if (isLoading) return;
+        
+        // Atualizar estado de carregamento
+        setLoadingState(true);
+        
+        // Usar a API do Unsplash para imagens baseadas na descrição
+        const query = encodeURIComponent(descricao);
+        const apiUrl = `https://source.unsplash.com/600x300/?${query}`;
+        
+        // Adicionar timestamp para evitar cache
+        const timestamp = new Date().getTime();
+        const imageUrl = `${apiUrl}&timestamp=${timestamp}`;
+        
+        // Criar imagem para testar se carrega corretamente
+        const img = new Image();
+        
+        img.onload = function() {
+          // Sucesso - mostrar imagem
+          generatedImage.src = imageUrl;
+          currentImageUrl = imageUrl;
+          resultSection.style.display = 'block';
+          
+          // Restaurar estado normal
+          setLoadingState(false);
+          
+          // Rolar para a imagem
+          resultSection.scrollIntoView({ behavior: 'smooth' });
+          
+          // Adicionar à URL para compartilhamento
+          updateUrlParams(descricao);
+        };
+        
+        img.onerror = function() {
+          // Em caso de erro, usar imagem placeholder
+          generatedImage.src = 'https://picsum.photos/600/300';
+          currentImageUrl = 'https://picsum.photos/600/300';
+          resultSection.style.display = 'block';
+          
+          // Restaurar estado normal
+          setLoadingState(false);
+          
+          // Rolar para a imagem
+          resultSection.scrollIntoView({ behavior: 'smooth' });
+          
+          showNotification('Não foi possível carregar uma imagem específica. Imagem genérica exibida.', 'warning');
+        };
+        
+        img.src = imageUrl;
+      }
+      
+      // Função para salvar imagem
+      function saveImage() {
+        if (!currentImageUrl) {
+          showNotification('Nenhuma imagem para salvar.', 'error');
+          return;
+        }
+        
+        // Criar um link temporário para download
+        try {
+          const a = document.createElement('a');
+          a.href = currentImageUrl;
+          a.download = `kaiser-ai-${Date.now()}.jpg`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          
+          showNotification('Imagem salva com sucesso!', 'success');
+        } catch (error) {
+          console.error('Erro ao salvar imagem:', error);
+          showNotification('Erro ao salvar a imagem.', 'error');
+        }
+      }
+      
+      // Função para atualizar estado de carregamento
+      function setLoadingState(loading) {
+        isLoading = loading;
+        
+        if (loading) {
+          generateBtn.innerHTML = '<span class="loading"></span> Gerando...';
+          generateBtn.disabled = true;
+        } else {
+          generateBtn.innerHTML = 'Gerar Imagem';
+          generateBtn.disabled = false;
+        }
+      }
+      
+      // Função para verificar parâmetros da URL
+      function checkUrlParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const descricaoParam = urlParams.get('descricao');
+        
+        if (descricaoParam) {
+          descricaoInput.value = decodeURIComponent(descricaoParam);
+          // Gerar imagem automaticamente se houver descrição na URL
+          setTimeout(generateImage, 500);
+        }
+      }
+      
+      // Função para atualizar parâmetros da URL
+      function updateUrlParams(descricao) {
+        const urlParams = new URLSearchParams();
+        urlParams.set('descricao', encodeURIComponent(descricao));
+        
+        const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+        window.history.replaceState({}, '', newUrl);
+      }
+      
+      // Função para mostrar notificações
+      function showNotification(message, type = 'info') {
+        // Remover notificação existente
+        const existingNotification = document.querySelector('.notification');
+        if (existingNotification) {
+          existingNotification.remove();
+        }
+        
+        // Criar elemento de notificação
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.textContent = message;
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 12px 20px;
+          border-radius: 8px;
+          color: white;
+          font-weight: 600;
+          z-index: 1000;
+          animation: slideIn 0.3s ease;
+          max-width: 300px;
+        `;
+        
+        // Estilo baseado no tipo
+        if (type === 'error') {
+          notification.style.background = 'var(--secondary)';
+        } else if (type === 'success') {
+          notification.style.background = 'var(--success)';
+        } else if (type === 'warning') {
+          notification.style.background = '#ff9800';
+        } else {
+          notification.style.background = 'var(--primary)';
+        }
+        
+        // Adicionar estilos de animação
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+        `;
+        document.head.appendChild(style);
+        
+        document.body.appendChild(notification);
+        
+        // Remover após 5 segundos
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+          }
+        }, 5000);
+      }
+    });
+  </script>
 </body>
 </html>
